@@ -37,5 +37,22 @@ namespace Application
             }
             sr2.Close();
         }
+
+        static string[] UploadNames(string[] lines, int linenum)
+        {
+            string[] names = new string[linenum];
+            int index;
+
+            for (int i = 0; i < linenum - 1; i++)
+            {
+                index = lines[i].IndexOf('(');
+                if (index != -1)
+                    names[i] = lines[i].Substring(0, index);
+                else
+                    names[i] = lines[i];
+            }
+
+            return names;
+        }
     }
 }
