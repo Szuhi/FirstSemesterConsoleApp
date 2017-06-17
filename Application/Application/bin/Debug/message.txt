@@ -1,0 +1,12 @@
+Peti(Kati,Zsolti(Jozsi,Anna(Reka,Gergo),Andras),Laci,Gabor(Istvan))
+Kati
+Zsolti(Jozsi,Anna(Reka,Gergo),Andras)
+Jozsi
+Anna(Reka,Gergo)
+Reka
+Gergo
+Andras
+Laci
+Gabor(Istvan)
+Istvan
+#

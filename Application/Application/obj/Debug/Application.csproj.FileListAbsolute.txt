@@ -1,0 +1,6 @@
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\bin\Debug\Application.exe.config
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\bin\Debug\Application.exe
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\bin\Debug\Application.pdb
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\obj\Debug\Application.exe
+D:\Development\Repository\University\FirstSemesterConsoleApp\Application\Application\obj\Debug\Application.pdb
