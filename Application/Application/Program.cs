@@ -175,11 +175,15 @@ namespace Application
 
             for (int i = 0; i < linenum - 1; i++)
             {
-                index = lines[i].IndexOf('(');
-                if (index != -1)
-                    names[i] = lines[i].Substring(0, index);
-                else
-                    names[i] = lines[i];
+                try
+                {
+                    index = lines[i].IndexOf('(');
+                    if (index != -1)
+                        names[i] = lines[i].Substring(0, index);
+                    else
+                        names[i] = lines[i];
+                }
+                catch { }
             }
 
             return names;

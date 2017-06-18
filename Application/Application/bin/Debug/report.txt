@@ -1,0 +1,5 @@
+Name of the first person: Zsolti
+Name of the second person: Gergo
+The provided person directly sending the message to 1 other(s).
+The provided second person receives the message through 0 other(s).
+The amount of persons not receiving the message: 11
