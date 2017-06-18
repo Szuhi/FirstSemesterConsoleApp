@@ -9,7 +9,7 @@ namespace Application
 {
     class Methods
     {
-        public int directHandOver(int linenum, string[] lines, string firstPerson, string[] names)
+        public int DirectHandOver(int linenum, string[] lines, string firstPerson, string[] names)
         {
             int db = 1;
             int startingBracket = 0;
@@ -115,7 +115,7 @@ namespace Application
             Methods methods;
             StreamReader sr = new StreamReader("message.txt");
             StreamReader sr2 = new StreamReader("message.txt");
-            int count = 0;
+            int linenum = 0;
             int i = 0;
             string[] lines;
             string[] names;
@@ -126,11 +126,11 @@ namespace Application
             do
             {
                 temp = sr.ReadLine();
-                count++;
+                linenum++;
             } while (temp != "#");
             sr.Close();
 
-            lines = new string[count];
+            lines = new string[linenum];
             while (!sr2.EndOfStream)
             {
                 lines[i] = sr2.ReadLine();
@@ -138,8 +138,8 @@ namespace Application
             }
             sr2.Close();
 
-            names = new string[count];
-            names = UploadNames(names, count);
+            names = new string[linenum];
+            names = UploadNames(names, linenum);
 
             Console.WriteLine("Please provide the name of the person you wish to examine: ");
             firstPerson = Console.ReadLine();
@@ -149,7 +149,15 @@ namespace Application
 
             methods = new Methods();
 
+            Console.WriteLine("The provided person directly sending the message to " + methods.DirectHandOver(linenum, lines, firstPerson, names) + " other(s).");
+            Console.WriteLine("The provided second person receives the message through " + methods.ThroughHowManyPeople(linenum, lines, firstPerson, secondPerson, names) + " other(s).");
+            Console.WriteLine("The amount of persons not receiving the message: " + methods.NotSending(linenum, names, lines, firstPerson));
+            Console.WriteLine("Push any button to export the report into a text file.");
+            Console.ReadLine();
 
+
+
+            Console.ReadLine();
         }
 
         static string[] UploadNames(string[] lines, int linenum)
