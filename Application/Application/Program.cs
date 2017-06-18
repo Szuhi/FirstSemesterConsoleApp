@@ -14,15 +14,93 @@ namespace Application
             int db = 1;
             int startingBracket = 0;
             int closingBracket = 0;
-            string temp = "";
+            char[] charBlock;
+            char charTemp;
+            string stringTemp = "";
 
             // Looking for the line starting with the name of the firstPerson
             for (int i = 0; i < linenum - 1; i++)                   
                 if (firstPerson == names[i])
+                    stringTemp = lines[i];
+
+            charBlock = new char[stringTemp.Length];
+
+            for (int j = 0; j < stringTemp.Length; j++)
+                charBlock[j] = stringTemp[j];
+
+            for (int z = 0; z < charBlock.Length; z++)
+            {
+                charTemp = charBlock[z];
+                if (charTemp == '(')
+                    startingBracket++;
+                if (charTemp == ')')
+                    closingBracket++;
+                if ((closingBracket + 1) == startingBracket)
+                    if (charTemp == ',')
+                        db++;
+            }
+
+            return db;
+        }
+
+        public int ThroughHowManyPeople(int linenum, string[] lines, string firstPerson, string secondPerson, string[] names)
+        {
+            int db = 0;
+            int index;
+            string temp = "";
+
+            for (int i = 0; i < linenum - 1; i++)
+                if (firstPerson == names[i])
                     temp = lines[i];
-            
 
+            index = temp.IndexOf(secondPerson);
 
+            for (int j = 0; j < index; j++)
+            {
+                switch (temp[j])
+                {
+                    case '(':
+                        db++;
+                        break;
+                    case ')':
+                        db--;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return db;
+        }
+
+        public int NotSending(int linenum, string[] names, string[] lines, string firstPerson)
+        {
+            int db;
+            int l;
+            char[] characters = { '(', ')', ',' };
+            string temp = "";
+            string[] temp2;
+
+            for (int i = 0; i < linenum - 1; i++)
+                if (firstPerson == names[i])
+                    temp = lines[i];
+
+            temp2 = temp.Split(characters);
+            l = 0;
+
+            for (int j = 0; j < temp2.Length; j++)
+            {
+                switch (temp2[j])
+                {
+                    case "":
+                        break;
+                    default:
+                        l++;
+                        break;
+                }
+            }
+
+            db = ((linenum - 1) - l);
 
             return db;
         }
